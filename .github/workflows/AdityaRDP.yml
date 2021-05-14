@@ -1,4 +1,4 @@
-name: AdityaRDP
+name: popmie
 
 on: workflow_dispatch
 
@@ -9,14 +9,14 @@ jobs:
     timeout-minutes: 9999
 
     steps:
-    - name: Mendownload Ngrok.
+    - name: Mendownload Ngrok 10%.
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/harispoppylatip/pasang/master/start.bat -OutFile start.bat
         Invoke-WebRequest https://raw.githubusercontent.com/AdityaGans2542/AdityaRDP/main/wallpaper.png -OutFile wallpaper.png
         Invoke-WebRequest https://raw.githubusercontent.com/AdityaGans2542/AdityaRDP/main/wallpaper.bat -OutFile wallpaper.bat
         Invoke-WebRequest https://raw.githubusercontent.com/harispoppylatip/pasang/master/loop.bat -OutFile loop.bat
-    - name: Mendownload Launcher.
+    - name: Mendownload Launcher 45%.
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/AdityaGans2542/AdityaRDP/main/launcher/Node.js.lnk -OutFile Node.js.lnk
         Invoke-WebRequest https://raw.githubusercontent.com/AdityaGans2542/AdityaRDP/main/launcher/Visual%20Studio%202019.lnk -OutFile "Visual Studio 2019.lnk"
@@ -27,7 +27,7 @@ jobs:
       run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-    - name: Mengaktifkan Akses RDP.
+    - name: Mengaktifkan Akses RDP 70%.
       run: | 
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
@@ -37,7 +37,7 @@ jobs:
         copy Node.js.lnk C:\Users\Public\Desktop\Node.js.lnk
         copy "Visual Studio 2019.lnk" "C:\Users\Public\Desktop\Visual Studio 2019.lnk"
         copy "Ganti Password.exe" "C:\Users\Public\Desktop\Ganti Password.exe"
-    - name: Membuat Tunnel.
+    - name: Membuat Tunnel 100%.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp --region ap 3389"'
     - name: Connect Ke RDP Kamu CPU 2 Core - 7GB Ram - 256 SSD.
       run: cmd /c start.bat
